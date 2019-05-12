@@ -21,7 +21,6 @@ class Util {
                 $prop->setValue($object, $array[$prop->name]);
             }
         }
-
         return $object;
     }
 
