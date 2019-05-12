@@ -7,6 +7,7 @@ class Livro {
     public $isbn;
     public $edicao;
     public $ano;
+    public $preco;
     
 }
 
