@@ -30,4 +30,11 @@ class Util {
         return array_intersect_key($array, array_flip($campos));
     }
 
+    public static function montaLinha(array $row, $tag = 'td'): string {
+        
+        return "<tr>" . implode('', array_map(function($row) use ($tag) {
+                            return "<$tag>" . $row . "</$tag>";
+                        }, $row)) . "</tr>";
+    }
+
 }
