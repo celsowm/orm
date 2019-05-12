@@ -16,5 +16,12 @@ while ($row = $statement->fetch()){
 
     $livro = Util::rowParaObject($row, 'Livro');
     $livro->editora = Util::rowParaObject($row, 'Editora', 'nome', 'editora_id');
-    echo Util::montaLinha([$livro->id,$livro->titulo,$livro->titulo,$livro->isbn, $livro->edicao, $livro->ano, $livro->editora->nome]);
+    echo Util::montaLinha([
+        $livro->id,
+        $livro->titulo,
+        $livro->titulo,
+        $livro->isbn, 
+        $livro->edicao, 
+        $livro->ano, 
+        $livro->editora->nome]);
 }
