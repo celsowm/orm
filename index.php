@@ -11,11 +11,11 @@ require_once 'Util.php';
 
 echo "<table border>";
 echo Util::montaLinha(['ID','Título','Preço','ISBN','Edição','Ano', 'Editora'], 'th');
-$statement = $pdo->query('SELECT * FROM livro LEFT JOIN editora ON livro.editora_id = editora.id');
+$statement = $pdo->query('SELECT livro.*, editora.nome FROM livro LEFT JOIN editora ON livro.editora_id = editora.id');
 while ($row = $statement->fetch()){
 
     $livro = Util::rowParaObject($row, 'Livro');
-    $livro->editora = Util::rowParaObject($row, 'Editora', 'nome', 'editora_id');
+    $livro->editora = Util::rowParaObject($row, 'Editora', 'nome');
     echo Util::montaLinha([
         $livro->id,
         $livro->titulo,
